@@ -68,20 +68,50 @@ void _addMood(Mood mood,String note){
 }
 
 //Get the most frequent mood
-Mood _getMostFrequentMood(){
-  if(_moodLog.isEmpty)return
-      Mood('None',Icons.sentiment_neutral,Colors.grey);
+Mood _getMostFrequentMood() {
+  if (_moodLog.isEmpty) return
+    Mood('None', Icons.sentiment_neutral, Colors.grey);
 
   final moodCounts = <String, int>{};
-  for (var entry in _moodLog){
-    moodCounts[entry.mood.name] =(moodCounts[entry.mood.name]??0)+1;
+  for (var entry in _moodLog) {
+    moodCounts[entry.mood.name] = (moodCounts[entry.mood.name] ?? 0) + 1;
   }
-  final mostFrequent = moodCounts.entries.reduce((a,b)=>
-  a.value > b.value ? a:b);
+  final mostFrequent = moodCounts.entries.reduce((a, b) =>
+  a.value > b.value ? a : b);
 
   return
-      [..._moodsRow1,..._moodsRow2].firstWhere((mood)=> mood.name == mostFrequent.key);
+    [..._moodsRow1, ..._moodsRow2].firstWhere((mood) =>
+    mood.name == mostFrequent.key);
 }
+  //Show a dialog to long a mood
+  void _showMoodDialog(Mood mood){
+    final TextEditingController _noteController =TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context){
+        return AlertDialog(title: const Text("Add Mood",
+        style: TextStyle(fontWeight: FontWeight.bold)),
+        content: Column(mainAxisSize: MainAxisSize.min,
+        children: [
+          Text("Selected Mood: ${mood.name}"),
+          const SizedBox(height: 10),
+          TextField(
+            controller: _noteController,
+            decoration: const InputDecoration(
+              labelText: "Why do you feel this way?",border: OutlineInputBorder(),
+            ),
+          ),
+        ],
+        ),
+
+
+      }
+
+
+    
+}
+
 }
 
 
