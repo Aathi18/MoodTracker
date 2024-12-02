@@ -56,8 +56,32 @@ final List<Mood>_moodsRow1=[
   final List<Mood>_moodsRow2=[
     Mood('Excited',Icons.sentiment_satisfied_alt,Colors.orange),
     Mood('Calm',Icons.self_improvement,Colors.green),
-    Mood('Tired',Icons.bedtime,Colors.purple),+
+    Mood('Tired',Icons.bedtime,Colors.purple),
   ];
+
+  //Add a MoodEntry
+
+void _addMood(Mood mood,String note){
+  setState(() {
+    _moodLog.add(MoodEntry(mood: mood, date: DateTime.now(), note: note));
+  });
+}
+
+//Get the most frequent mood
+Mood _getMostFrequentMood(){
+  if(_moodLog.isEmpty)return
+      Mood('None',Icons.sentiment_neutral,Colors.grey);
+
+  final moodCounts = <String, int>{};
+  for (var entry in _moodLog){
+    moodCounts[entry.mood.name] =(moodCounts[entry.mood.name]??0)+1;
+  }
+  final mostFrequent = moodCounts.entries.reduce((a,b)=>
+  a.value > b.value ? a:b);
+
+  return
+      [..._moodsRow1,..._moodsRow2].firstWhere((mood)=> mood.name == mostFrequent.key);
+}
 }
 
 
