@@ -127,6 +127,14 @@ class _MoodTrackerHomePageState extends State <MoodTrackerHomePage>{
     return Scaffold(
       appBar: AppBar(
         title: const Text("MoodTracker")),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors:[Colors.teal.shade300,
+            Colors.teal.shade900],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,)
+          ),
+        ),
     );
 
   }
