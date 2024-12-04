@@ -134,7 +134,40 @@ class _MoodTrackerHomePageState extends State <MoodTrackerHomePage>{
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,)
           ),
+
+          child: SafeArea(child:Column(
+            children: [
+              const Padding(padding: EdgeInsets.all(16.0),
+              child: Text("How are you feeling today?",
+              style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.w600),),),
+
+              //Mood Rows
+
+
+              //Mood Log Section
+              const Padding(padding:EdgeInsets.all(16.0),
+              child: Text("Mood Log",style: TextStyle(
+                fontSize: 18,color: Colors.white,
+                  fontWeight: FontWeight.bold
+              ),
+              ),
+              ),
+              Expanded(child: _moodLog.isEmpty?
+              const Center(
+                child: Text("No mood entries yet. Tab a Mood to log!",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black),
+                ),
+              )
+                  :ListView()
+              )
+            ],
+
+
+          )),
         ),
+
     );
 
   }
