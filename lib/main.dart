@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -160,8 +162,25 @@ class _MoodTrackerHomePageState extends State <MoodTrackerHomePage>{
                     color: Colors.black),
                 ),
               )
-                  :ListView()
-              )
+                  :ListView.builder(itemCount: _moodLog.length, itemBuilder: (context,index){
+                    final entry = _moodLog[index];
+                    return Card(
+                      color: Colors.teal.shade800,
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 6, horizontal: 12),
+                      child: ListTile(
+                        leading: Icon(entry.mood.icon,color: entry.mood.color),
+                        title:Text(entry.mood.name,style:
+                          const TextStyle(
+                            color: Colors.black)),
+                        subtitle: Text("${entry.date.day}/${entry.date.month}/${entry.date.year}-${entry.note}",
+                        style: const TextStyle(color: Colors.white70),
+                      ),
+                      ),
+                    );
+              },
+              ),
+              ),
             ],
 
 
