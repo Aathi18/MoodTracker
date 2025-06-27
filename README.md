@@ -1,16 +1,27 @@
-# moodtracker
+# 😊 Mood Tracker App
 
-A new Flutter project.
+A simple and intuitive app designed to help users log and track their daily moods. The **Mood Tracker** allows users to reflect on their emotional well-being over time through daily entries, mood tagging, and insightful visualizations.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🌟 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 📝 Log daily moods (e.g., Happy, Sad, Anxious, Excited, etc.)
+- 💬 Add notes or journal entries with each mood
+- 📆 Calendar view to see mood history
+- 📊 Visualize mood trends over time with charts
+- 🔔 Daily reminder notifications
+- 🌓 Dark mode support
+- 🔒 Optional PIN/biometric lock for privacy
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+> Adjust based on your implementation:
+
+- 📱 Flutter 
+- 📦 SQLite
+
+
+
